@@ -1,0 +1,3 @@
+rootProject.name = 'reacti18n'
+
+include ':app'
