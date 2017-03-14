@@ -12,20 +12,30 @@ import {
   View
 } from 'react-native';
 
+import I18n from 'react-native-i18n'
+import ReactNativeI18n from 'react-native-i18n'
+
+import EN_US from './i18n/en/strings'
+import ZH_TW from './i18n/tw/strings'
+
+I18n.fallbacks = true
+
+I18n.translations = {
+  'en': EN_US,
+  'zh-Hant': ZH_TW
+}
+
 export default class reacti18n extends Component {
+  constructor(props){
+    super(props)
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Locale : {ReactNativeI18n.locale}
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Text>{I18n.t('welcome')}</Text>
       </View>
     );
   }

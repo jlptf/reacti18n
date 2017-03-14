@@ -1,7 +1,9 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * React Native i18n App sample code
+ * 
+ * module : react-native-i18n
+ * github : https://github.com/AlexanderZaytsev/react-native-i18n
+ * 
  */
 
 import React, { Component } from 'react';
@@ -12,20 +14,28 @@ import {
   View
 } from 'react-native';
 
+import I18n from 'react-native-i18n'
+import ReactNativeI18n from 'react-native-i18n'
+
+import EN_US from './i18n/en/strings'
+import ZH_TW from './i18n/tw/strings'
+
+I18n.fallbacks = true
+
+I18n.translations = {
+  'en': EN_US,
+  'zh-Hant': ZH_TW,
+  'zh-tw': ZH_TW
+}
+
 export default class reacti18n extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Locale : {ReactNativeI18n.locale}
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <Text>{I18n.t('welcome')}</Text>
       </View>
     );
   }
@@ -42,11 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 
