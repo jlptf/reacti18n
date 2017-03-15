@@ -22,7 +22,9 @@ I18n.fallbacks = true
 
 I18n.translations = {
   'en': EN_US,
-  'zh-Hant': ZH_TW
+  'zh-Hant': ZH_TW, //for simulator
+  'zh-Hant-US': ZH_TW, //for simulator
+  'zh-TW': ZH_TW
 }
 
 export default class reacti18n extends Component {
@@ -52,11 +54,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 
